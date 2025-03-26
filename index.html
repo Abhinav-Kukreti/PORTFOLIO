@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Abhinav Kukreti | Cloud & Java Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --gray: #95a5a6;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem;
+        }
+        nav ul li a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        section {
+            padding: 3rem 0;
+        }
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .project h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .project p, .skills-list {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .education-item, .certification-item {
+            margin-bottom: 1.5rem;
+        }
+        .contact-info a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        .social-links {
+            margin-top: 1rem;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./photo2.jpg"
+             alt="Abhinav Kukreti" 
+             class="profile-img"
+        <h1>Abhinav Kukreti</h1>
+        <p>Cloud & Java Developer | AWS Certified</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>Motivated B.Tech student specializing in Cloud Computing and Virtualization Technology, with strong skills in Java and AWS. Passionate about building scalable solutions and solving complex problems. Certified AWS Cloud Practitioner with hands-on experience in deploying three-tier architectures on AWS.</p>
+            </div>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="card project">
+                <h3>AccountHub | Bank Management System</h3>
+                <p>Designed and developed a Banking Management System using Core Java and MySQL with a Java Swing GUI. Implemented secure authentication, account management, and transaction modules (deposit/withdrawal).</p>
+                <p><strong>Tech:</strong> Java, MySQL, OOPs, Swing</p>
+            </div>
+            <div class="card project">
+                <h3>Three-Tier Architecture Deployment on AWS</h3>
+                <p>Deployed a scalable three-tier architecture on AWS using VPC, EC2 (backend), S3 (frontend), RDS (database), Load Balancer, and Auto Scaling. Monitored performance via CloudWatch.</p>
+                <p><strong>Tech:</strong> AWS (EC2, S3, RDS, VPC, CloudWatch)</p>
+            </div>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="card">
+                <div class="skills-list">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">OOPs</span>
+                    <span class="skill-tag">Cloud Computing</span>
+                </div>
+            </div>
+        </section>
+        <section id="education">
+            <h2>Education & Certifications</h2>
+            <div class="card">
+                <div class="education-item">
+                    <h3>Bachelor of Technology in Computer Science</h3>
+                    <p>University of Petroleum and Energy Studies (UPES) | Cloud Computing & Virtualization</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>AWS Cloud Practitioner Essentials</li>
+                        <li>AWS Academy Cloud Architecting</li>
+                        <li>AWS Academy Cloud Security Foundations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="card">
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:kukrettabhinav17@gmail.com">kukrettabhinav17@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> +91-9897685570</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Dehradun, Uttarakhand</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Abhinav Kukreti. All rights reserved.</p>
+    </footer>
+</body>
+</html>
