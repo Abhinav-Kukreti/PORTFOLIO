@@ -29,6 +29,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
+            overflow: hidden;
         }
         
         .container {
@@ -107,29 +108,46 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
             padding: 0.5rem 1rem;
             border-radius: 4px;
+            cursor: pointer;
         }
         
-        nav a:hover {
+        nav a.active {
             color: var(--secondary);
             background-color: rgba(255,255,255,0.1);
         }
         
-        /* Section Styles */
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid #eee;
+        nav a:hover:not(.active) {
+            color: var(--secondary);
         }
         
-        section:last-child {
-            border-bottom: none;
+        /* Main Content */
+        .main-content {
+            height: calc(100vh - 260px);
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 2rem 0;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        section.active {
+            display: block;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             color: var(--primary);
             position: relative;
         }
@@ -161,7 +179,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
         
         .project-card {
@@ -421,7 +439,9 @@
             background-color: var(--dark);
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
+            position: sticky;
+            bottom: 0;
         }
         
         /* Responsive Design */
@@ -465,6 +485,10 @@
             .contact-container {
                 flex-direction: column;
             }
+            
+            .main-content {
+                height: calc(100vh - 300px);
+            }
         }
     </style>
 </head>
@@ -491,249 +515,250 @@
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a class="nav-link active" data-section="about">About</a></li>
+                <li><a class="nav-link" data-section="projects">Projects</a></li>
+                <li><a class="nav-link" data-section="skills">Skills</a></li>
+                <li><a class="nav-link" data-section="education">Education</a></li>
+                <li><a class="nav-link" data-section="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Motivated B.Tech student specializing in Cloud Computing and Virtualization Technology, with strong skills in Java and AWS. Passionate about building scalable solutions and solving complex problems. Certified AWS Cloud Practitioner with hands-on experience in deploying three-tier architectures on AWS.</p>
-                    <p>I bring both theoretical knowledge and practical skills to any development team. My experience in building full-stack applications and managing cloud infrastructure makes me a versatile candidate for various technical roles. With a strong foundation in computer science principles and cloud technologies, I'm eager to contribute to innovative projects and grow as a professional in the field.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/Abhinav-Kukreti" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-info">
-                        <img src="https://media.licdn.com/dms/image/v2/D5612AQGURCOFAQtX5w/article-cover_image-shrink_423_752/article-cover_image-shrink_423_752/0/1691988180632?e=1750291200&v=beta&t=UbhywRe_UHwXaJjevnh0IVkD8ZnfIq70YMRU387EOrU" alt="Bank Management System" class="project-image">
-                        <h3>Bank Management System</h3>
-                        <p class="project-description">Using Java, Swing, AWT and MySQL to create a comprehensive Bank Management System</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Swing</span>
-                            <span class="tech-tag">MySQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Abhinav-Kukreti/Bank_Management_System" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-info">
-                        <img src="https://justdoitsascha.github.io/docker-guide-101/img/docker_1.png" alt="Bank Management System" class="project-image">
-                        <h3>Docker Dockyard</h3>
-                        <p class="project-description">Collection of Docker experiments and containerization projects</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Containerization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Abhinav-Kukreti/DOCKER-CONTAINER" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-info">
-                        <img src="https://th.bing.com/th/id/OIP.H_cz99wMusSCKhqk_305AQHaHZ?rs=1&pid=ImgDetMain" alt="Bank Management System" class="project-image">
-                        <h3>Streamlit Dashboard</h3>
-                        <p class="project-description">Interactive data visualization dashboard built with Streamlit</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Streamlit</span>
-                            <span class="tech-tag">Data Visualization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://strermlit-dashboard-dxxr6xo5ycn42vt5yk2fyp.streamlit.app/" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-info">
-                        <img src="https://1.bp.blogspot.com/-T7amnmqaM0E/XVvvlGuj81I/AAAAAAAAJWA/NeU1dgpqWcUWmbSdTuJ9gZgwxstPnPNRgCLcBGAs/w1200-h630-p-k-no-nu/machine_leanring.png" alt="Bank Management System" class="project-image">
-                        <h3>ML Project</h3>
-                        <p class="project-description">A comprehensive web application for training, analyzing, and deploying machine learning models with an intuitive user interface.</p>
-                        <div class="project-tech">
-
-                        </div>
-                        <div class="project-links">
-                            <a href="https://ml-project-docker-wmz44senvdccitsxdpcw6n.streamlit.app/" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-                
-                <div class="project-card">
-                    <div class="project-info">
-                        <img src="https://www.researchgate.net/profile/Zakarya-Farou/publication/353288055/figure/fig1/AS:1046167500644352@1626437177029/Example-of-a-binary-classification-for-a-dummy-dataset-with-two-features.ppm" alt="Bank Management System" class="project-image">
-                        <h3>Binary Classification</h3>
-                        <p class="project-description">Binary Classification Web Application</p>
-                        <div class="project-tech">
-
-                        </div>
-                        <div class="project-links">
-                            <a href="https://binary-classification-zmptjylnze2df7ewhvvqr7.streamlit.app/" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-info">
-                        <img src="https://cdn-images-1.medium.com/v2/resize:fit:750/1*IC1b2AnebaOYNK8PdZFwTQ.jpeg" alt="Bank Management System" class="project-image">
-                        <h3>Titanic Prediction</h3>
-                        <p class="project-description">Machine learning model predicting Titanic survival rates</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="project-links">
-                            
-                            <a href="https://titanic-survival-predictor-kquzs23r8ilbcgm2gtonx5.streamlit.app/" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Section -->
+        <section id="about" class="active">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Motivated B.Tech student specializing in Cloud Computing and Virtualization Technology, with strong skills in Java and AWS. Passionate about building scalable solutions and solving complex problems. Certified AWS Cloud Practitioner with hands-on experience in deploying three-tier architectures on AWS.</p>
+                        <p>I bring both theoretical knowledge and practical skills to any development team. My experience in building full-stack applications and managing cloud infrastructure makes me a versatile candidate for various technical roles. With a strong foundation in computer science principles and cloud technologies, I'm eager to contribute to innovative projects and grow as a professional in the field.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Abhinav-Kukreti" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Technical Skills</h3>
-                    <div class="skill-item"><i class="fas fa-check"></i> Java</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> Spring Boot</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> MySQL</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> HTML/CSS/JavaScript</div>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud Technologies</h3>
-                    <div class="skill-item"><i class="fas fa-check"></i> AWS EC2, S3, RDS</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> VPC Configuration</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> Cloud Security</div>
-                </div>
-                <div class="skill-category">
-                    <h3>Other Skills</h3>
-                    <div class="skill-item"><i class="fas fa-check"></i> OOPs</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> Cloud Computing</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Bachelor of Technology in Computer Science</h3>
-                        <p>Cloud Computing and Virtualization Technology</p>
-                        <p>University of Petroleum and Energy Studies (UPES)</p>
-                        <p>2022 - Present</p>
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <img src="https://media.licdn.com/dms/image/v2/D5612AQGURCOFAQtX5w/article-cover_image-shrink_423_752/article-cover_image-shrink_423_752/0/1691988180632?e=1750291200&v=beta&t=UbhywRe_UHwXaJjevnh0IVkD8ZnfIq70YMRU387EOrU" alt="Bank Management System" class="project-image">
+                            <h3>Bank Management System</h3>
+                            <p class="project-description">Using Java, Swing, AWT and MySQL to create a comprehensive Bank Management System</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Swing</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Abhinav-Kukreti/Bank_Management_System" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Class XII (ISC Board)</h3>
-                        <p>Doon Presidency School</p>
-                        <p>2021 - 2022 | Percentage: 79%</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Class X (ICSE Board)</h3>
-                        <p>Doon Presidency School</p>
-                        <p>2019 - 2020 | Percentage: 87%</p>
-                    </div>
-                </div>
-            </div>
-            
-            <h3 style="margin-top: 4rem; text-align: center; color: var(--primary);">Certifications</h3>
-            <div class="skills-container" style="margin-top: 2rem;">
-                <div class="skill-category">
-                    <h3>AWS Certifications</h3>
-                    <div class="skill-item"><i class="fas fa-certificate"></i> AWS Cloud Practitioner Essentials</div>
-                    <div class="skill-item"><i class="fas fa-certificate"></i> AWS Academy Cloud Architecting</div>
-                    <div class="skill-item"><i class="fas fa-certificate"></i> AWS Academy Cloud Security Foundations</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Dehradun, Uttarakhand, India</p>
-                    <p><i class="fas fa-phone"></i> +91-9897685570</p>
-                    <p><i class="fas fa-envelope"></i> kukretiabhinav17@gmail.com</p>
                     
-                    <div class="social-links" style="margin-top: 2rem;">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/Abhinav-Kukreti" target="_blank"><i class="fab fa-github"></i></a>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <img src="https://justdoitsascha.github.io/docker-guide-101/img/docker_1.png" alt="Bank Management System" class="project-image">
+                            <h3>Docker Dockyard</h3>
+                            <p class="project-description">Collection of Docker experiments and containerization projects</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Containerization</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Abhinav-Kukreti/DOCKER-CONTAINER" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-info">
+                            <img src="https://th.bing.com/th/id/OIP.H_cz99wMusSCKhqk_305AQHaHZ?rs=1&pid=ImgDetMain" alt="Bank Management System" class="project-image">
+                            <h3>Streamlit Dashboard</h3>
+                            <p class="project-description">Interactive data visualization dashboard built with Streamlit</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Streamlit</span>
+                                <span class="tech-tag">Data Visualization</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://strermlit-dashboard-dxxr6xo5ycn42vt5yk2fyp.streamlit.app/" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-info">
+                            <img src="https://1.bp.blogspot.com/-T7amnmqaM0E/XVvvlGuj81I/AAAAAAAAJWA/NeU1dgpqWcUWmbSdTuJ9gZgwxstPnPNRgCLcBGAs/w1200-h630-p-k-no-nu/machine_leanring.png" alt="Bank Management System" class="project-image">
+                            <h3>ML Project</h3>
+                            <p class="project-description">A comprehensive web application for training, analyzing, and deploying machine learning models with an intuitive user interface.</p>
+                            <div class="project-tech">
+
+                            </div>
+                            <div class="project-links">
+                                <a href="https://ml-project-docker-wmz44senvdccitsxdpcw6n.streamlit.app/" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-info">
+                            <img src="https://www.researchgate.net/profile/Zakarya-Farou/publication/353288055/figure/fig1/AS:1046167500644352@1626437177029/Example-of-a-binary-classification-for-a-dummy-dataset-with-two-features.ppm" alt="Bank Management System" class="project-image">
+                            <h3>Binary Classification</h3>
+                            <p class="project-description">Binary Classification Web Application</p>
+                            <div class="project-tech">
+
+                            </div>
+                            <div class="project-links">
+                                <a href="https://binary-classification-zmptjylnze2df7ewhvvqr7.streamlit.app/" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <img src="https://cdn-images-1.medium.com/v2/resize:fit:750/1*IC1b2AnebaOYNK8PdZFwTQ.jpeg" alt="Bank Management System" class="project-image">
+                            <h3>Titanic Prediction</h3>
+                            <p class="project-description">Machine learning model predicting Titanic survival rates</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Streamlit</span>
+                            </div>
+                            <div class="project-links">
+                                
+                                <a href="https://titanic-survival-predictor-kquzs23r8ilbcgm2gtonx5.streamlit.app/" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-item"><i class="fas fa-check"></i> Java</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Spring Boot</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> MySQL</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> HTML/CSS/JavaScript</div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cloud Technologies</h3>
+                        <div class="skill-item"><i class="fas fa-check"></i> AWS EC2, S3, RDS</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> VPC Configuration</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Cloud Security</div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Other Skills</h3>
+                        <div class="skill-item"><i class="fas fa-check"></i> OOPs</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Cloud Computing</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Bachelor of Technology in Computer Science</h3>
+                            <p>Cloud Computing and Virtualization Technology</p>
+                            <p>University of Petroleum and Energy Studies (UPES)</p>
+                            <p>2022 - Present</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Class XII (ISC Board)</h3>
+                            <p>Doon Presidency School</p>
+                            <p>2021 - 2022 | Percentage: 79%</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Class X (ICSE Board)</h3>
+                            <p>Doon Presidency School</p>
+                            <p>2019 - 2020 | Percentage: 87%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 2rem; text-align: center; color: var(--primary);">Certifications</h3>
+                <div class="skills-container" style="margin-top: 1rem;">
+                    <div class="skill-category">
+                        <h3>AWS Certifications</h3>
+                        <div class="skill-item"><i class="fas fa-certificate"></i> AWS Cloud Practitioner Essentials</div>
+                        <div class="skill-item"><i class="fas fa-certificate"></i> AWS Academy Cloud Architecting</div>
+                        <div class="skill-item"><i class="fas fa-certificate"></i> AWS Academy Cloud Security Foundations</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Dehradun, Uttarakhand, India</p>
+                        <p><i class="fas fa-phone"></i> +91-9897685570</p>
+                        <p><i class="fas fa-envelope"></i> kukretiabhinav17@gmail.com</p>
+                        
+                        <div class="social-links" style="margin-top: 2rem;">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Abhinav-Kukreti" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -741,5 +766,35 @@
             <p>&copy; 2024 Abhinav Kukreti. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Add click event listeners to each link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and sections
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show the corresponding section
+                    const sectionId = this.getAttribute('data-section');
+                    document.getElementById(sectionId).classList.add('active');
+                });
+            });
+            
+            // Initialize the first section as active
+            document.querySelector('.nav-link').click();
+        });
+    </script>
 </body>
 </html>
